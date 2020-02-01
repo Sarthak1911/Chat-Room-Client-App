@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "../Input/Input";
+import InputNoLabel from "../InputNoLabel/InputNoLabel";
 
 class Form extends Component {
   state = {
@@ -68,6 +69,21 @@ class Form extends Component {
 
     return (
       <Input
+        label={label}
+        name={name}
+        type={type}
+        value={data[name]}
+        onChange={this.handleChange}
+        error={errors[name]}
+      />
+    );
+  };
+
+  renderInputNoLabel = (name, type, label) => {
+    const { data, errors } = this.state;
+
+    return (
+      <InputNoLabel
         label={label}
         name={name}
         type={type}

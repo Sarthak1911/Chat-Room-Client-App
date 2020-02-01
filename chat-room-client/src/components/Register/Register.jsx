@@ -34,7 +34,8 @@ class Register extends Form {
       //Call the Register method
       const response = await register(user);
       const jwt = response.headers[token];
-      setToken(jwt);
+      setToken("token", jwt);
+      setToken("username", response.data.username.toString());
 
       //Navigate to chat-room
       this.props.history.replace("/chat-room");
@@ -47,6 +48,7 @@ class Register extends Form {
         this.setState({ errors });
         return;
       }
+
       toast.error("Something went wrong");
     }
   };

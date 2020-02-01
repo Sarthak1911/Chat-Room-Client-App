@@ -34,7 +34,8 @@ class Login extends Form {
       //Call the login method
       const response = await login(user);
       const jwt = response.headers[token];
-      setToken(jwt);
+      setToken("token", jwt);
+      setToken("username", response.data.username.toString());
 
       //Navigate to chat-room
       this.props.history.replace("/chat-room");

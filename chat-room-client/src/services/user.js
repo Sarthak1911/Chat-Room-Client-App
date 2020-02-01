@@ -1,14 +1,13 @@
 import axios from "axios";
 
 const END_POINT = "http://localhost:3000/api/users";
-const TOKEN = "token";
 
-export function setToken(value) {
-  localStorage.setItem(TOKEN, value);
+export function setToken(token, value) {
+  localStorage.setItem(token, value);
 }
 
-export function getToken(value) {
-  localStorage.setItem(TOKEN, value);
+export function getToken(token) {
+  return localStorage.getItem(token);
 }
 
 export async function login(user) {
